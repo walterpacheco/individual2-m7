@@ -1,10 +1,10 @@
 const pool = require('../db/pool');
 
 // Método para agregar un registro
-const agregarUsuario = async (nombre) => {
+const agregarUsuario = async (nombre, email, saldo) => {
     const consulta = {
-        text: "INSERT INTO Users (nombre) VALUES ($1) RETURNING *",
-        values: [nombre]
+        text: "INSERT INTO Users (nombre, email, saldo) VALUES ($1, $2, $3) RETURNING *",
+        values: [nombre, email, saldo]
     };
 
     try {
@@ -18,10 +18,10 @@ const agregarUsuario = async (nombre) => {
 };
 
 // Método para modificar un registro
-const modificarUsuario = async (id, nombre) => {
+const modificarUsuario = async (id, nombre, email) => {
     const consulta = {
-        text: "UPDATE Users SET nombre = $1 WHERE id = $2 RETURNING *",
-        values: [nombre, id]
+        text: "UPDATE Users SET nombre = $1, email = $2 WHERE id = $3 RETURNING *",
+        values: [nombre, email, id]
     };
 
     try {

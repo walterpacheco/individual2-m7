@@ -1,12 +1,12 @@
 const { agregarUsuario, modificarUsuario, borrarUsuario } = require('./controllers/usuarioController');
 
-// Ejemplo de uso: Agregar un usuario
-agregarUsuario('Carlos López')
+// Ejemplo de uso: Agregar un usuario con nombre, email y saldo inicial
+agregarUsuario('Carlos López', 'carlos.lopez@example.com', 20000)  // Incluye email y saldo inicial
     .then(result => console.log("Resultado de inserción:", result))
     .catch(error => console.error("Error en inserción:", error));
 
 // Ejemplo de uso: Modificar un usuario
-modificarUsuario(1, 'Carlos López Actualizado')
+modificarUsuario(1, 'Carlos López Actualizado', 'carlos.actualizado@example.com')
     .then(result => console.log("Resultado de modificación:", result))
     .catch(error => console.error("Error en modificación:", error));
 
